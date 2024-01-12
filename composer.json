@@ -2,22 +2,24 @@
   "name": "litalino/flarum-related-discussions",
   "description": "Add Related discussions on flarum",
   "keywords": [
-    "flarum",
-    "flarum extension",
-    "related discussions"
+      "flarum",
+      "flarum extension",
+      "related discussions"
   ],
   "type": "flarum-extension",
   "license": "MIT",
   "require": {
-    "flarum/core": "^1.8.4"
+      "flarum/core": "^1.8.4"
+  },
+  "require-dev": {
+      "flarum/testing": "^1.0.0"
   },
   "authors": [
-    {
-      "name": "litalino",
-      "email": "info@khatvongsong.vn",
-      "role": "Developer",
-      "homepage": "https://khatvongsong.vn"
-    }
+      {
+          "name": "litalino",
+          "email": "info@khatvongsong.vn",
+          "role": "Developer"
+      }
   ],
   "support": {
     "issues": "https://github.com/Litalino/flarum-related-discussions/issues",
@@ -25,61 +27,55 @@
     "forum": "https://discuss.flarum.org/d/1000000-flarum-related-discussions"
   },
   "autoload": {
-    "psr-4": {
-      "Litalino\\RelatedDiscussions\\": "src/"
-    }
+      "psr-4": {
+          "Litalino\\RelatedDiscussions\\": "src/"
+      }
   },
   "homepage": "https://khatvongsong.vn",
   "extra": {
-    "branch-alias": {
-      "dev-main": "1.x-dev"
-    },
-    "flarum-extension": {
-      "title": "Related Discussions",
-      "category": "feature",
-      "icon": {
-        "name": "fas fa-indent",
-        "backgroundColor": "blue",
-        "color": "white"
+      "flarum-extension": {
+        "title": "Related Discussions",
+        "category": "feature",
+        "icon": {
+          "name": "fas fa-indent",
+          "backgroundColor": "blue",
+          "color": "white"
+        }
+      },
+      "flarum-cli": {
+        "modules": {
+          "admin": true,
+          "forum": true,
+          "js": true,
+          "jsCommon": false,
+          "css": true,
+          "locale": true,
+          "gitConf": true,
+          "githubActions": true,
+          "prettier": true,
+          "typescript": false,
+          "bundlewatch": false,
+          "backendTesting": false,
+          "editorConfig": true,
+          "styleci": true
+        }
       }
-    },
-    "flarum-cli": {
-      "modules": {
-        "admin": true,
-        "forum": true,
-        "js": true,
-        "jsCommon": false,
-        "css": true,
-        "locale": true,
-        "gitConf": true,
-        "githubActions": true,
-        "prettier": true,
-        "typescript": false,
-        "bundlewatch": false,
-        "backendTesting": false,
-        "editorConfig": true,
-        "styleci": true
-      }
-    },
-    "flagrow": {
-      "discuss": ""
-    }
   },
   "repositories": [
-    {
-      "type": "path",
-      "url": "../../*/*"
-    }
+      {
+          "type": "path",
+          "url": "../../*/*"
+      }
   ],
   "require-dev": {
     "flarum/phpstan": "*"
   },
   "scripts": {
-    "analyse:phpstan": "phpstan analyse",
-    "clear-cache:phpstan": "phpstan clear-result-cache"
+      "analyse:phpstan": "phpstan analyse",
+      "clear-cache:phpstan": "phpstan clear-result-cache"
   },
   "scripts-descriptions": {
-    "analyse:phpstan": "Run static analysis"
+      "analyse:phpstan": "Run static analysis"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
