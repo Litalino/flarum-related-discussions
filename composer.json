@@ -9,10 +9,7 @@
   "type": "flarum-extension",
   "license": "MIT",
   "require": {
-    "flarum/core": "^1.0.0"
-  },
-  "require-dev": {
-    "flarum/testing": "^1.0.0"
+    "flarum/core": "^1.8.0"
   },
   "authors": [
     {
@@ -32,7 +29,11 @@
       "Litalino\\RelatedDiscussions\\": "src/"
     }
   },
+  "homepage": "https://khatvongsong.vn",
   "extra": {
+    "branch-alias": {
+      "dev-main": "1.x-dev"
+    },
     "flarum-extension": {
       "title": "Related Discussions",
       "category": "feature",
@@ -42,10 +43,34 @@
         "color": "white"
       }
     },
+    "flarum-cli": {
+      "modules": {
+        "admin": true,
+        "forum": true,
+        "js": true,
+        "jsCommon": false,
+        "css": true,
+        "locale": true,
+        "gitConf": true,
+        "githubActions": true,
+        "prettier": true,
+        "typescript": false,
+        "bundlewatch": false,
+        "backendTesting": false,
+        "editorConfig": true,
+        "styleci": true
+      }
+    },
     "flagrow": {
       "discuss": ""
     }
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../*/*"
+    }
+  ],
   "require-dev": {
     "flarum/phpstan": "*"
   },
