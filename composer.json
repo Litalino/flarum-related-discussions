@@ -31,10 +31,7 @@
     "psr-4": {
       "Litalino\\RelatedDiscussions\\": "src/"
     }
-  },
-  "replace": {
-      "litalino/flarum-related-discussions": "*"
-  },
+  }
   "extra": {
     "flarum-extension": {
       "title": "Related Discussions",
