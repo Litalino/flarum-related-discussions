@@ -58,12 +58,6 @@
         }
       }
   },
-  "repositories": [
-      {
-          "type": "path",
-          "url": "../../*/*"
-      }
-  ],
   "require-dev": {
     "flarum/phpstan": "*"
   },
