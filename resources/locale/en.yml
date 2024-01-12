@@ -8,10 +8,10 @@ litalino-related-discussions:
     showExcerpt: Show Summary Excerpt
     showTooltip: Show Tooltip with Excerpt
   forum:
-    reldiscussion: Suggested Discussions`:`
+    reldiscussion: Suggested Discussions
     participants: Participants
     postnumber: Number of posts
-    postedOn: on`:`
+    postedOn: on
     repliedOn: replied
     hasBestAnswer: Solved
     hasBestAnswer-title: This discussion is marked as solved
