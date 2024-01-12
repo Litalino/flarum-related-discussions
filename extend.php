@@ -4,7 +4,7 @@
  * This file is part of Litalino/flarum-related-discussions.
  *
  * Copyright (c) 2023 Litalino.
- * https://flarum.it
+ * https://khatvongsong.vn
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
