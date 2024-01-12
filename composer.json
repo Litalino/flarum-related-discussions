@@ -1,0 +1,64 @@
+{
+  "name": "litalino/flarum-related-discussions",
+  "description": "Add Related discussions on flarum",
+  "keywords": [
+    "flarum",
+    "flarum extension",
+    "related discussions"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^1.0.0"
+  },
+  "require-dev": {
+    "flarum/testing": "^1.0.0"
+  },
+  "authors": [
+    {
+      "name": "litalino",
+      "email": "info@khatvongsong.vn",
+      "role": "Developer",
+      "homepage": "https://khatvongsong.vn"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/Litalino/flarum-related-discussions/issues",
+    "source": "https://github.com/Litalino/flarum-related-discussions",
+    "forum": "https://discuss.flarum.org/d/1000000-flarum-related-discussions"
+  },
+  "autoload": {
+    "psr-4": {
+      "Litalino\\RelatedDiscussions\\": "src/"
+    }
+  },
+  "replace": {
+      "litalino/flarum-related-discussions": "*"
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Related Discussions",
+      "category": "feature",
+      "icon": {
+        "name": "fas fa-indent",
+        "backgroundColor": "blue",
+        "color": "white"
+      }
+    },
+    "flagrow": {
+      "discuss": ""
+    }
+  },
+  "require-dev": {
+    "flarum/phpstan": "*"
+  },
+  "scripts": {
+    "analyse:phpstan": "phpstan analyse",
+    "clear-cache:phpstan": "phpstan clear-result-cache"
+  },
+  "scripts-descriptions": {
+    "analyse:phpstan": "Run static analysis"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
