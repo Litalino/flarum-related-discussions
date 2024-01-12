@@ -23,11 +23,6 @@
     "source": "https://github.com/Litalino/flarum-related-discussions",
     "forum": "https://discuss.flarum.org/d/1000000-flarum-related-discussions"
   },
-  "autoload": {
-      "psr-4": {
-          "Litalino\\RelatedDiscussions\\": "src/"
-      }
-  },
   "homepage": "https://khatvongsong.vn",
   "extra": {
       "flarum-extension": {
