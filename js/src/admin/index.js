@@ -6,12 +6,12 @@ app.initializers.add('litalino-related-discussions', () => {
     setting: 'litalino-related-discussions.relatedLimit',
     name: 'relatedLimit',
     type: 'number',
-    label: app.translator.trans('flarum-ext-related-discussions.admin.relatedLimit'),
-    help: app.translator.trans('flarum-ext-related-discussions.admin.relatedLimit-help'),
+    label: app.translator.trans('litalino-related-discussions.admin.relatedLimit'),
+    help: app.translator.trans('litalino-related-discussions.admin.relatedLimit-help'),
   });
   app.extensionData.for('litalino-related-discussions').registerSetting({
     setting: 'litalino-related-discussions.showTooltip',
-    label: app.translator.trans('flarum-ext-related-discussions.admin.showTooltip'),
+    label: app.translator.trans('litalino-related-discussions.admin.showTooltip'),
     type: 'boolean',
   });
   app.extensionData.for('litalino-related-discussions').registerSetting({

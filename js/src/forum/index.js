@@ -30,12 +30,12 @@ app.initializers.add('litalino/related-discussions', () => {
           return {
             view: () => (
               <div className="wraprelated">
-                <h1 className="DiscussionListItem-title related">
+                <h2 className="DiscussionListItem-title-related">
                   <i className="fas fa-indent relatedTitle" />
                   {app.forum.attribute('litalino-related-discussions.relatedTitle') ||
                     app.translator.trans('litalino-related-discussions.forum.reldiscussion')}
-                </h1>
-                <div className="related-discussions" role="navigation">
+                </h2>
+                <div className="DiscussionList related-discussions" role="navigation">
                   {DisplayRelated.map((relDisc) => {
                     const createdAtDate = relDisc.data?.attributes?.createdAt.slice(0,10)
                     console.log(relDisc)
@@ -55,26 +55,50 @@ app.initializers.add('litalino/related-discussions', () => {
                       },
                     };
                     return (
-                      <div className="DiscussionListItem-content Slidable-content read related">
-                        <Link href={`${app.forum.attribute('baseUrl')}/u/${relDisc.user().data?.attributes?.username}`}>
-                          <Tooltip text={`${relDisc.user().data?.attributes?.username} ${app.translator.trans('litalino-related-discussions.forum.avatarTooltip')} ${createdAtDate}`}>
-                            {avatar(relDisc.user(), {
-                              title: relDisc.user().data?.attributes?.username,
-                              className: 'relatedAvatar',
-                            })}
-                          </Tooltip>
-                        </Link>
-                        {showTooltip === true ? (
-                          <Tooltip
-                            className="tooltip-related"
-                            text={
-                              relDisc
-                                .firstPost()
-                                .contentHtml()
-                                .replace(/<\/?[^>]+(>|$)/g, '')
-                                .substr(0, 200) + '...'
-                            }
-                          >
+                      <div class="DiscussionListItem">
+                        <div className="DiscussionListItem-content Slidable-content read related">
+                          <Link 
+                            className="DiscussionListItem-author"
+                            href={`${app.forum.attribute('baseUrl')}/u/${relDisc.user().data?.attributes?.username}`}>
+                            <Tooltip 
+                              text={`${relDisc.user().data?.attributes?.username} ${app.translator.trans('litalino-related-discussions.forum.avatarTooltip')} ${createdAtDate}`}>
+                              {avatar(relDisc.user(), {
+                                title: relDisc.user().data?.attributes?.username,
+                                className: 'DiscussionListItem-thumbnail relatedAvatar',
+                              })}
+                            </Tooltip>
+                          </Link>
+                          {showTooltip === true ? (
+                            <Tooltip
+                              className="tooltip-related"
+                              text={
+                                relDisc
+                                  .firstPost()
+                                  .contentHtml()
+                                  .replace(/<\/?[^>]+(>|$)/g, '')
+                                  .substr(0, 200) + '...'
+                              }
+                            >
+                              <Link className="DiscussionListItem-main related" title={relDisc.title()} href={app.route.discussion(relDisc)}>
+                                <h3 className="DiscussionListItem-title related">
+                                  {relDisc.title()} {m(bestAnswer)}
+                                </h3>
+                                <ul className="DiscussionListItem-info related">
+                                  <li className="item-terminalPost">
+                                    <span>
+                                      <i aria-hidden="true" className="icon fas fa-reply" />{' '}
+                                      <span className="username">{username(relDisc.lastPostedUser())}</span>
+                                      <span className="replied-on">{app.translator.trans('litalino-related-discussions.forum.repliedOn')} </span>
+                                      <time dateTime={relDisc.data.attributes.lastPostedAt}>
+                                        {app.translator.trans('litalino-related-discussions.forum.postedOn')}{' '}
+                                        {relDisc.data.attributes.lastPostedAt.slice(0, 10)}
+                                      </time>
+                                    </span>
+                                  </li>
+                                </ul>
+                              </Link>
+                            </Tooltip>
+                          ) : (
                             <Link className="DiscussionListItem-main related" title={relDisc.title()} href={app.route.discussion(relDisc)}>
                               <h3 className="DiscussionListItem-title related">
                                 {relDisc.title()} {m(bestAnswer)}
@@ -82,7 +106,7 @@ app.initializers.add('litalino/related-discussions', () => {
                               <ul className="DiscussionListItem-info related">
                                 <li className="item-terminalPost">
                                   <span>
-                                    <i aria-hidden="true" className="icon fas fa-reply " />{' '}
+                                    <i aria-hidden="true" className="icon fas fa-reply" />{' '}
                                     <span className="username">{username(relDisc.lastPostedUser())}</span>
                                     <span className="replied-on">{app.translator.trans('litalino-related-discussions.forum.repliedOn')} </span>
                                     <time dateTime={relDisc.data.attributes.lastPostedAt}>
@@ -93,33 +117,14 @@ app.initializers.add('litalino/related-discussions', () => {
                                 </li>
                               </ul>
                             </Link>
-                          </Tooltip>
-                        ) : (
-                          <Link className="DiscussionListItem-main related" title={relDisc.title()} href={app.route.discussion(relDisc)}>
-                            <h3 className="DiscussionListItem-title related">
-                              {relDisc.title()} {m(bestAnswer)}
-                            </h3>
-                            <ul className="DiscussionListItem-info related">
-                              <li className="item-terminalPost">
-                                <span>
-                                  <i aria-hidden="true" className="icon fas fa-reply " />{' '}
-                                  <span className="username">{username(relDisc.lastPostedUser())}</span>
-                                  <span className="replied-on">{app.translator.trans('litalino-related-discussions.forum.repliedOn')} </span>
-                                  <time dateTime={relDisc.data.attributes.lastPostedAt}>
-                                    {app.translator.trans('litalino-related-discussions.forum.postedOn')}{' '}
-                                    {relDisc.data.attributes.lastPostedAt.slice(0, 10)}
-                                  </time>
-                                </span>
-                              </li>
-                            </ul>
-                          </Link>
-                        )}
-                        <span className="DiscussionListItem-count related">
-                          {tagsLabel(relDisc.tags(), {
-                            link: true,
-                            className: 'related-tag',
-                          })}
-                        </span>
+                          )}
+                          <span className="DiscussionListItem-count related">
+                            {tagsLabel(relDisc.tags(), {
+                              link: true,
+                              className: 'related-tag',
+                            })}
+                          </span>
+                        </div>
                       </div>
                     );
                   })}
