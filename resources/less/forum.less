@@ -55,8 +55,16 @@
       width: auto;
       background: transparent;
       margin-right: 0px;
-      @media (max-width: 500px) {
+      right: 0px;
+      position: absolute;
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: max-width .2s ease-in-out,-webkit-mask-image .2s;
+      -webkit-mask-image: linear-gradient(to right,#000 140px,rgba(0,0,0,0) 200px);
+        @media (max-width: 500px) {
         float: unset;
+        position: relative;
         margin-left: 50px;
         vertical-align: top;
       }

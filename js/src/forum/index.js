@@ -38,7 +38,7 @@ app.initializers.add('litalino/related-discussions', () => {
                 <div className="DiscussionList related-discussions" role="navigation">
                   {DisplayRelated.map((relDisc) => {
                     const createdAtDate = relDisc.data?.attributes?.createdAt.slice(0,10)
-                    console.log(relDisc)
+                    //console.log(relDisc)
                     const bestAnswer = {
                       view: function (vnode) {
                         if (relDisc.data.attributes.hasBestAnswer !== false && relDisc.data.attributes.hasBestAnswer !== undefined) {
